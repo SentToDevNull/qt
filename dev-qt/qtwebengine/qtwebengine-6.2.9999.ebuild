@@ -176,7 +176,7 @@ src_prepare() {
 	# we need to generate ppc64 stuff because upstream does not ship it yet
 	if use ppc64; then
 		einfo "Patching for ppc64le and generating build files"
-		eapply "${FILESDIR}/qtwebengine-5.15.2-enable-ppc64.patch"
+		eapply "${FILESDIR}/qtwebengine-6.2.0-enable-ppc64.patch"
 		pushd src/3rdparty/chromium > /dev/null || die
 		eapply -p0 "${WORKDIR}/${PN}-ppc64le"
 		popd > /dev/null || die
