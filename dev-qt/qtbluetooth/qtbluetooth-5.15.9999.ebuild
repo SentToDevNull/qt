@@ -3,12 +3,12 @@
 
 EAPI=7
 
-QT5_MODULE="qtconnectivity"
-inherit qt5-build
+QT6_MODULE="qtconnectivity"
+inherit qt6-build
 
-DESCRIPTION="Bluetooth support library for the Qt5 framework"
+DESCRIPTION="Bluetooth support library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
@@ -16,7 +16,7 @@ IUSE="qml"
 
 RDEPEND="
 	~dev-qt/qtconcurrent-${PV}
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	~dev-qt/qtdbus-${PV}
 	>=net-wireless/bluez-5:=
 	qml? ( ~dev-qt/qtdeclarative-${PV} )
@@ -30,5 +30,5 @@ src_prepare() {
 
 	qt_use_disable_mod qml quick src/src.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

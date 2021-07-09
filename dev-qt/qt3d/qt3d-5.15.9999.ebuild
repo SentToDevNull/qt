@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="3D rendering module for the Qt5 framework"
+DESCRIPTION="3D rendering module for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
@@ -17,7 +17,7 @@ IUSE="gamepad gles2-only qml vulkan"
 RDEPEND="
 	~dev-qt/qtconcurrent-${PV}
 	~dev-qt/qtcore-${PV}
-	~dev-qt/qtgui-${PV}:5=[vulkan=]
+	~dev-qt/qtgui-${PV}:6=[vulkan=]
 	~dev-qt/qtnetwork-${PV}
 	>=media-libs/assimp-4.0.0
 	gamepad? ( ~dev-qt/qtgamepad-${PV} )
@@ -33,5 +33,5 @@ src_prepare() {
 	qt_use_disable_mod gamepad gamepad src/input/frontend/frontend.pri
 	qt_use_disable_mod qml quick src/src.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

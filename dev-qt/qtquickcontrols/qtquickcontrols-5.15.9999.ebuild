@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Set of Qt Quick controls to create complete user interfaces (deprecated)"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 fi
 
@@ -29,5 +29,5 @@ src_prepare() {
 		tests/auto/controls/controls.pro \
 		tests/auto/testplugin/testplugin.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

@@ -3,19 +3,19 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
-DESCRIPTION="Qt5 module for integrating online documentation into applications"
+DESCRIPTION="Qt6 module for integrating online documentation into applications"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 IUSE=""
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	~dev-qt/qtgui-${PV}
 	~dev-qt/qtnetwork-${PV}
 	~dev-qt/qtsql-${PV}[sqlite]
@@ -23,7 +23,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/assistant/help
 	src/assistant/qcollectiongenerator
 	src/assistant/qhelpgenerator

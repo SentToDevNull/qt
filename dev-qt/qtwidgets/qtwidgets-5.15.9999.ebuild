@@ -3,12 +3,12 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
-inherit qt5-build
+QT6_MODULE="qtbase"
+inherit qt6-build
 
-DESCRIPTION="Set of components for creating classic desktop-style UIs for the Qt5 framework"
+DESCRIPTION="Set of components for creating classic desktop-style UIs for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -16,7 +16,7 @@ fi
 IUSE="gles2-only gtk +png +X"
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	~dev-qt/qtgui-${PV}[gles2-only=,png=,X?]
 	gtk? (
 		~dev-qt/qtgui-${PV}[dbus]
@@ -27,19 +27,19 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/tools/uic
 	src/widgets
 	src/plugins/platformthemes
 )
 
-QT5_GENTOO_CONFIG=(
+QT6_GENTOO_CONFIG=(
 	gtk:gtk3:
 	::widgets
 	!:no-widgets:
 )
 
-QT5_GENTOO_PRIVATE_CONFIG=(
+QT6_GENTOO_PRIVATE_CONFIG=(
 	:widgets
 )
 
@@ -53,5 +53,5 @@ src_configure() {
 		$(qt_use X xcb)
 		$(usex X '-xcb-xlib -xkbcommon' '')
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

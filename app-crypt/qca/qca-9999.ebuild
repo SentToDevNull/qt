@@ -16,7 +16,7 @@ IUSE="botan debug doc examples gcrypt gpg logger nss pkcs11 sasl softstore +ssl 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-qt/qtcore:5
+	dev-qt/qtcore:6
 	botan? ( dev-libs/botan:= )
 	gcrypt? ( dev-libs/libgcrypt:= )
 	gpg? ( app-crypt/gnupg )
@@ -30,8 +30,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? (
-		dev-qt/qtnetwork:5
-		dev-qt/qttest:5
+		dev-qt/qtnetwork:6
+		dev-qt/qttest:6
 	)
 "
 BDEPEND="doc? ( app-doc/doxygen )"
@@ -44,8 +44,8 @@ qca_plugin_use() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DQCA_FEATURE_INSTALL_DIR="${EPREFIX}$(qt5_get_mkspecsdir)/features"
-		-DQCA_PLUGINS_INSTALL_DIR="${EPREFIX}$(qt5_get_plugindir)"
+		-DQCA_FEATURE_INSTALL_DIR="${EPREFIX}$(qt6_get_mkspecsdir)/features"
+		-DQCA_PLUGINS_INSTALL_DIR="${EPREFIX}$(qt6_get_plugindir)"
 		$(qca_plugin_use botan)
 		$(qca_plugin_use gcrypt)
 		$(qca_plugin_use gpg gnupg)

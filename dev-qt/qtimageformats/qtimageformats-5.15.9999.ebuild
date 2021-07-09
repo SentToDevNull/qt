@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Additional format plugins for the Qt image I/O system"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~sparc ~x86"
 fi
 
@@ -27,5 +27,5 @@ src_configure() {
 		-i src/plugins/imageformats/imageformats.pro || die
 	qt_use_disable_config mng mng src/plugins/imageformats/imageformats.pro
 
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

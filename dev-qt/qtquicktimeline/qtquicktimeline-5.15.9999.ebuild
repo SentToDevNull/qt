@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Qt module for keyframe-based timeline construction"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 

@@ -20,18 +20,18 @@ KEYWORDS=""
 IUSE="+dbus debug +ico +iso +wineappdb"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 "
 DEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsingleapplication[qt5(+),X]
-	dev-qt/qtsql:5[sqlite]
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
-	dbus? ( dev-qt/qtdbus:5 )
+	dev-qt/qtcore:6
+	dev-qt/qtgui:6
+	dev-qt/qtnetwork:6
+	dev-qt/qtsingleapplication[qt6(+),X]
+	dev-qt/qtsql:6[sqlite]
+	dev-qt/qtsvg:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtxml:6
+	dbus? ( dev-qt/qtdbus:6 )
 	ico? ( >=media-gfx/icoutils-0.26.0 )
 "
 RDEPEND="${DEPEND}

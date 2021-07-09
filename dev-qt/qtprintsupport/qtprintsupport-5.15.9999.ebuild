@@ -3,20 +3,20 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
+QT6_MODULE="qtbase"
 VIRTUALX_REQUIRED="test"
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Printing support library for the Qt5 framework"
+DESCRIPTION="Printing support library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 IUSE="cups gles2-only"
 
 RDEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	~dev-qt/qtgui-${PV}[gles2-only=]
 	~dev-qt/qtwidgets-${PV}[gles2-only=]
 	cups? ( >=net-print/cups-1.4 )
@@ -25,12 +25,12 @@ DEPEND="${RDEPEND}
 	test? ( ~dev-qt/qtnetwork-${PV} )
 "
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/printsupport
 	src/plugins/printsupport
 )
 
-QT5_GENTOO_CONFIG=(
+QT6_GENTOO_CONFIG=(
 	cups
 )
 
@@ -39,5 +39,5 @@ src_configure() {
 		$(qt_use cups)
 		-opengl $(usex gles2-only es2 desktop)
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

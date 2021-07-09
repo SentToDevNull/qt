@@ -4,11 +4,11 @@
 EAPI=7
 
 VIRTUALX_REQUIRED="test"
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Set of QML types for adding visual effects to user interfaces"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 fi
 

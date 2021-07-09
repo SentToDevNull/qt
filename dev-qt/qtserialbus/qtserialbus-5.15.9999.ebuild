@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Qt module to access CAN, ModBus, and other industrial serial buses and protocols"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 

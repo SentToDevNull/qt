@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Module for displaying web content in a QML application using the Qt5 framework"
+DESCRIPTION="Module for displaying web content in a QML application using the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64"
 fi
 
@@ -17,6 +17,6 @@ DEPEND="
 	~dev-qt/qtcore-${PV}
 	~dev-qt/qtdeclarative-${PV}
 	~dev-qt/qtgui-${PV}
-	=dev-qt/qtwebengine-${PV}*:5
+	=dev-qt/qtwebengine-${PV}*:6
 "
 RDEPEND="${DEPEND}"

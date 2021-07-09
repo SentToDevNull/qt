@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Wayland platform plugin for Qt"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -15,9 +15,9 @@ IUSE="vulkan X"
 
 DEPEND="
 	dev-libs/wayland
-	~dev-qt/qtcore-${PV}:5=
-	~dev-qt/qtdeclarative-${PV}:5=
-	~dev-qt/qtgui-${PV}:5=[egl,libinput,vulkan=]
+	~dev-qt/qtcore-${PV}:6=
+	~dev-qt/qtdeclarative-${PV}:6=
+	~dev-qt/qtgui-${PV}:6=[egl,libinput,vulkan=]
 	media-libs/mesa[egl]
 	>=x11-libs/libxkbcommon-0.2.0
 	vulkan? ( dev-util/vulkan-headers )
@@ -36,5 +36,5 @@ src_configure() {
 		$(qt_use X feature-xcomposite-egl)
 		$(qt_use X feature-xcomposite-glx)
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

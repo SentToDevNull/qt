@@ -3,22 +3,22 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
-inherit qt5-build
+QT6_MODULE="qtbase"
+inherit qt6-build
 
-DESCRIPTION="Multi-threading concurrence support library for the Qt5 framework"
+DESCRIPTION="Multi-threading concurrence support library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 IUSE=""
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/concurrent
 )

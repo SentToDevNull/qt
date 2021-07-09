@@ -3,13 +3,13 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
-inherit qt5-build
+QT6_MODULE="qtbase"
+inherit qt6-build
 
-DESCRIPTION="SQL abstraction library for the Qt5 framework"
-SLOT=5/$(ver_cut 1-3) # bug 639140
+DESCRIPTION="SQL abstraction library for the Qt6 framework"
+SLOT=6/$(ver_cut 1-3) # bug 639140
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -20,7 +20,7 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	freetds? ( dev-db/freetds )
 	mysql? ( dev-db/mysql-connector-c:= )
 	oci8? ( dev-db/oracle-instantclient:=[sdk] )
@@ -30,12 +30,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/sql
 	src/plugins/sqldrivers
 )
 
-QT5_GENTOO_PRIVATE_CONFIG=(
+QT6_GENTOO_PRIVATE_CONFIG=(
 	:sql
 )
 
@@ -52,5 +52,5 @@ src_configure() {
 
 	use oci8 && myconf+=("-I${ORACLE_HOME}/include" "-L${ORACLE_HOME}/$(get_libdir)")
 
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

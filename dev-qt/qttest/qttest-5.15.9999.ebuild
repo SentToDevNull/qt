@@ -3,20 +3,20 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
+QT6_MODULE="qtbase"
 VIRTUALX_REQUIRED="test"
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Unit testing library for the Qt5 framework"
+DESCRIPTION="Unit testing library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 IUSE=""
 
 RDEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 "
 DEPEND="${RDEPEND}
 	test? (
@@ -25,10 +25,10 @@ DEPEND="${RDEPEND}
 	)
 "
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/testlib
 )
 
-QT5_GENTOO_PRIVATE_CONFIG=(
+QT6_GENTOO_PRIVATE_CONFIG=(
 	:testlib
 )

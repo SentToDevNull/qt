@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Hardware sensor access library for the Qt5 framework"
+DESCRIPTION="Hardware sensor access library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -25,5 +25,5 @@ src_prepare() {
 	qt_use_disable_mod qml quick \
 		src/src.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

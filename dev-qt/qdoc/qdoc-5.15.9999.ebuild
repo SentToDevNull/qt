@@ -3,19 +3,19 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
 DESCRIPTION="Qt documentation generator"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 IUSE="qml"
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	sys-devel/clang:=
 	qml? ( ~dev-qt/qtdeclarative-${PV} )
 "
@@ -25,5 +25,5 @@ src_prepare() {
 	qt_use_disable_mod qml qmldevtools-private \
 		src/qdoc/qdoc.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

@@ -3,25 +3,25 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
 DESCRIPTION="Tools for working with Qt translation data files"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
 IUSE="qml"
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	~dev-qt/qtxml-${PV}
 	qml? ( ~dev-qt/qtdeclarative-${PV} )
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/linguist
 )
 
@@ -32,15 +32,15 @@ src_prepare() {
 	qt_use_disable_mod qml qmldevtools-private \
 		src/linguist/lupdate/lupdate.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }
 
 src_configure() {
 	# Most of qttools require files that are only generated when qmake is
 	# run in the root directory.
 	# Related bugs: 633776, 676948, and 716514.
-	mkdir -p "${QT5_BUILD_DIR}" || die
-	qt5_qmake "${QT_BUILD_DIR}"
-	cp "${S}"/qttools-config.pri "${QT5_BUILD_DIR}" || die
-	qt5-build_src_configure
+	mkdir -p "${QT6_BUILD_DIR}" || die
+	qt6_qmake "${QT_BUILD_DIR}"
+	cp "${S}"/qttools-config.pri "${QT6_BUILD_DIR}" || die
+	qt6-build_src_configure
 }

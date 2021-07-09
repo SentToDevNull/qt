@@ -10,7 +10,7 @@ just defer to the QQuickFlickable base implementation like minXExtent()
 and minYExtent() already do.
 
 Fixes: QTBUG-83890
-Pick-to: 5.15
+Pick-to: 6.2
 Change-Id: I7f4060c2f46ae07611bedceca0d322c5f7f6affb
 ---
  src/quick/items/qquickitemview.cpp | 4 ++--
@@ -26,7 +26,7 @@ index 7fb392233e4..ab130ac6857 100644
      if (d->layoutOrientation() == Qt::Horizontal)
 -        return height();
 +        return QQuickFlickable::maxYExtent();
- 
+
      if (d->vData.maxExtentDirty) {
          d->maxExtent = d->maxExtentForAxis(d->vData, false);
 @@ -1421,7 +1421,7 @@ qreal QQuickItemView::maxXExtent() const
@@ -35,8 +35,8 @@ index 7fb392233e4..ab130ac6857 100644
      if (d->layoutOrientation() == Qt::Vertical)
 -        return width();
 +        return QQuickFlickable::maxXExtent();
- 
+
      if (d->hData.maxExtentDirty) {
          d->maxExtent = d->maxExtentForAxis(d->hData, true);
--- 
+--
 2.16.3

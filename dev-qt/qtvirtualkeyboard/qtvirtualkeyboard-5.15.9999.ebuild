@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Customizable input framework and virtual keyboard for Qt"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
@@ -39,5 +39,5 @@ src_configure() {
 			lang-uk_UA lang-vi_VN"
 	)
 
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

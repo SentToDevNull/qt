@@ -3,12 +3,12 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
 DESCRIPTION="Interface to Qt applications communicating over D-Bus"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -21,6 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/qdbus/qdbus
 )

@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
 DESCRIPTION="Qt module to support gamepad hardware"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
@@ -32,5 +32,5 @@ src_prepare() {
 	qt_use_disable_config sdl sdl2 \
 		src/plugins/gamepads/gamepads.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

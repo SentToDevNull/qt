@@ -3,12 +3,12 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
-DESCRIPTION="Qt5 plugin metadata dumper"
+DESCRIPTION="Qt6 plugin metadata dumper"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 

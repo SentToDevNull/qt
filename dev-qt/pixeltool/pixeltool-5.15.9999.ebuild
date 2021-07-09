@@ -3,20 +3,20 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
 DESCRIPTION="Qt screen magnifier"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~sparc ~x86"
 fi
 
 IUSE=""
 
 DEPEND="
-	~dev-qt/qtcore-${PV}:5=
-	~dev-qt/qtgui-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
+	~dev-qt/qtgui-${PV}:6=
 	~dev-qt/qtwidgets-${PV}
 "
 RDEPEND="${DEPEND}"

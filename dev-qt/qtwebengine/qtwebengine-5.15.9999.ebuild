@@ -5,23 +5,23 @@ EAPI=7
 
 PYTHON_COMPAT=( python2_7 )
 QTVER=$(ver_cut 1-3)
-inherit estack flag-o-matic multiprocessing python-any-r1 qt5-build
+inherit estack flag-o-matic multiprocessing python-any-r1 qt6-build
 
-DESCRIPTION="Library for rendering dynamic web content in Qt5 C++ and QML applications"
+DESCRIPTION="Library for rendering dynamic web content in Qt6 C++ and QML applications"
 HOMEPAGE="https://www.qt.io/"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 	if [[ ${PV} == ${QTVER}_p* ]]; then
 		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}.tar.xz"
 		S="${WORKDIR}/${P}"
-		QT5_BUILD_DIR="${S}_build"
+		QT6_BUILD_DIR="${S}_build"
 	fi
 else
-	EGIT_BRANCH="5.15"
+	EGIT_BRANCH="6.2"
 	EGIT_REPO_URI=(
-		"https://code.qt.io/qt/${QT5_MODULE}.git"
-		"https://github.com/qt/${QT5_MODULE}.git"
+		"https://code.qt.io/qt/${QT6_MODULE}.git"
+		"https://github.com/qt/${QT6_MODULE}.git"
 	)
 	inherit git-r3
 fi
@@ -125,7 +125,7 @@ src_unpack() {
 	fi
 	eshopts_pop
 
-	case ${QT5_BUILD_TYPE} in
+	case ${QT6_BUILD_TYPE} in
 		live)    git-r3_src_unpack ;&
 		release) default ;;
 	esac
@@ -136,9 +136,9 @@ src_prepare() {
 		# This is made from git, and for some reason will fail w/o .git directories.
 		mkdir -p .git src/3rdparty/chromium/.git || die
 
-		# We need to make sure this integrates well into Qt 5.15.2 installation.
+		# We need to make sure this integrates well into Qt 6.2 installation.
 		# Otherwise revdeps fail w/o heavy changes. This is the simplest way to do it.
-		sed -e "/^MODULE_VERSION/s/5.*/${QTVER}/" -i .qmake.conf || die
+		sed -e "/^MODULE_VERSION/s/6.*/${QTVER}/" -i .qmake.conf || die
 	fi
 
 	# QTBUG-88657 - jumbo-build could still make trouble
@@ -171,7 +171,7 @@ src_prepare() {
 
 	qt_use_disable_mod widgets widgets src/src.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 
 	# we need to generate ppc64 stuff because upstream does not ship it yet
 	if use ppc64; then
@@ -207,14 +207,14 @@ src_configure() {
 		$(usex system-ffmpeg '-system-ffmpeg' '-qt-ffmpeg')
 		$(usex system-icu '-webengine-icu' '-no-webengine-icu')
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }
 
 src_install() {
-	qt5-build_src_install
+	qt6-build_src_install
 
 	# bug 601472
-	if [[ ! -f ${D}${QT5_LIBDIR}/libQt5WebEngine.so ]]; then
+	if [[ ! -f ${D}${QT6_LIBDIR}/libQt6WebEngine.so ]]; then
 		die "${CATEGORY}/${PF} failed to build anything. Please report to https://bugs.gentoo.org/"
 	fi
 }

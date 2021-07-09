@@ -25,16 +25,16 @@ BDEPEND="
 	virtual/pkgconfig
 "
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5=
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtcore:6
+	dev-qt/qtdbus:6
+	dev-qt/qtgui:6=
+	dev-qt/qtsvg:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtxml:6
 	x11-misc/xdg-utils
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:5 )
+	test? ( dev-qt/qttest:6 )
 "
 
 src_configure() {

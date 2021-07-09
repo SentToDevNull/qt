@@ -4,11 +4,11 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6..9} )
-inherit python-any-r1 qt5-build
+inherit python-any-r1 qt6-build
 
-DESCRIPTION="The QML and Quick modules for the Qt5 framework"
+DESCRIPTION="The QML and Quick modules for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -18,7 +18,7 @@ BDEPEND="${PYTHON_DEPS}"
 # qtgui[gles2-only=] is needed because of bug 504322
 DEPEND="
 	~dev-qt/qtcore-${PV}
-	~dev-qt/qtgui-${PV}:5=[gles2-only=,vulkan=]
+	~dev-qt/qtgui-${PV}:6=[gles2-only=,vulkan=]
 	~dev-qt/qtnetwork-${PV}
 	~dev-qt/qttest-${PV}
 	localstorage? ( ~dev-qt/qtsql-${PV} )
@@ -44,7 +44,7 @@ src_prepare() {
 		tools/qmlscene/qmlscene.pro \
 		tools/qml/qml.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }
 
 src_configure() {
@@ -52,5 +52,5 @@ src_configure() {
 		--
 		-qml-debug
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

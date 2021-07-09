@@ -3,20 +3,20 @@
 
 EAPI=7
 
-QT5_MODULE="qttools"
-inherit qt5-build
+QT6_MODULE="qttools"
+inherit qt6-build
 
 DESCRIPTION="Tool for reporting diagnostic information about Qt and its environment"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~hppa ~ppc64 ~sparc ~x86"
 fi
 
 IUSE="+network +widgets"
 
 RDEPEND="
-	~dev-qt/qtcore-${PV}:5=
-	~dev-qt/qtgui-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
+	~dev-qt/qtgui-${PV}:6=
 	network? ( ~dev-qt/qtnetwork-${PV}[ssl] )
 	widgets? ( ~dev-qt/qtwidgets-${PV} )
 "
@@ -32,5 +32,5 @@ src_prepare() {
 	qt_use_disable_mod widgets widgets \
 		src/qtdiag/qtdiag.pro
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }

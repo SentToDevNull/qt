@@ -22,12 +22,9 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="test? (
-		dev-qt/qtcore:5
-		dev-qt/qttest:5
+		dev-qt/qtcore:6
+		dev-qt/qttest:6
 	)"
-RDEPEND="
-	!<dev-qt/qtcore-5.15.2-r2:5
-"
 
 qtchooser_make() {
 	emake \
@@ -43,7 +40,7 @@ src_compile() {
 
 src_test() {
 	pushd tests/auto >/dev/null || die
-	eqmake5
+	eqmake6
 	popd >/dev/null || die
 
 	qtchooser_make check
@@ -53,20 +50,20 @@ src_install() {
 	qtchooser_make INSTALL_ROOT="${D}" install
 
 	# install configuration file
-	cat > "${T}/qt5-${CHOST}.conf" <<-_EOF_ || die
-		$(qt5_get_bindir)
-		$(qt5_get_libdir)
+	cat > "${T}/qt6-${CHOST}.conf" <<-_EOF_ || die
+		$(qt6_get_bindir)
+		$(qt6_get_libdir)
 	_EOF_
 
 	(
 		insinto /etc/xdg/qtchooser
-		doins "${T}/qt5-${CHOST}.conf"
+		doins "${T}/qt6-${CHOST}.conf"
 	)
 
 	# convenience symlinks
-	dosym qt5-"${CHOST}".conf /etc/xdg/qtchooser/5.conf
-	dosym qt5-"${CHOST}".conf /etc/xdg/qtchooser/qt5.conf
-	dosym qt5.conf /etc/xdg/qtchooser/default.conf
+	dosym qt6-"${CHOST}".conf /etc/xdg/qtchooser/6.conf
+	dosym qt6-"${CHOST}".conf /etc/xdg/qtchooser/qt6.conf
+	dosym qt6.conf /etc/xdg/qtchooser/default.conf
 
 	# TODO: bash and zsh completion
 	# newbashcomp scripts/${PN}.bash ${PN}

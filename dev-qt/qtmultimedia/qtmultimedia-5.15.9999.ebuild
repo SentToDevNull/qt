@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt5 framework"
+DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -55,7 +55,7 @@ src_prepare() {
 		src/gsttools/gsttools.pro \
 		src/plugins/gstreamer/common.pri
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }
 
 src_configure() {
@@ -65,5 +65,5 @@ src_configure() {
 		$(qt_use gstreamer)
 		$(qt_use pulseaudio)
 	)
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

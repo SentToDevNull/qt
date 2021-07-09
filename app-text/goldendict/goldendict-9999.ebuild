@@ -15,7 +15,7 @@ KEYWORDS=""
 IUSE="debug ffmpeg"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 	virtual/pkgconfig
 "
 DEPEND="
@@ -23,17 +23,17 @@ DEPEND="
 	>=app-text/hunspell-1.2:=
 	dev-libs/eb
 	dev-libs/lzo
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qthelp:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsingleapplication[qt5(+),X]
-	dev-qt/qtsvg:5
-	dev-qt/qtwebkit:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtxml:5
+	dev-qt/qtcore:6
+	dev-qt/qtgui:6
+	dev-qt/qthelp:6
+	dev-qt/qtnetwork:6
+	dev-qt/qtprintsupport:6
+	dev-qt/qtsingleapplication[qt6(+),X]
+	dev-qt/qtsvg:6
+	dev-qt/qtwebkit:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtx11extras:6
+	dev-qt/qtxml:6
 	media-libs/libvorbis
 	media-libs/tiff:0
 	sys-libs/zlib
@@ -65,7 +65,7 @@ src_configure() {
 	local myconf=()
 	use ffmpeg || myconf+=( DISABLE_INTERNAL_PLAYER=1 )
 
-	eqmake5 "${myconf[@]}"
+	eqmake6 "${myconf[@]}"
 }
 
 src_install() {

@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Location (places, maps, navigation) library for the Qt5 framework"
+DESCRIPTION="Location (places, maps, navigation) library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 	~dev-qt/qtconcurrent-${PV}
 "
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/3rdparty/clipper
 	src/3rdparty/poly2tri
 	src/3rdparty/clip2tri
@@ -41,8 +41,8 @@ QT5_TARGET_SUBDIRS=(
 src_configure() {
 	# src/plugins/geoservices requires files that are only generated when
 	# qmake is run in the root directory. Bug 633776.
-	mkdir -p "${QT5_BUILD_DIR}"/src/location || die
-	qt5_qmake "${QT5_BUILD_DIR}"
-	cp "${S}"/src/location/qtlocation-config.pri "${QT5_BUILD_DIR}"/src/location || die
-	qt5-build_src_configure
+	mkdir -p "${QT6_BUILD_DIR}"/src/location || die
+	qt6_qmake "${QT6_BUILD_DIR}"
+	cp "${S}"/src/location/qtlocation-config.pri "${QT6_BUILD_DIR}"/src/location || die
+	qt6-build_src_configure
 }

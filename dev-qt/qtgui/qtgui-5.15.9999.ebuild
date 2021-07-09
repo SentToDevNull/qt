@@ -3,13 +3,13 @@
 
 EAPI=7
 
-QT5_MODULE="qtbase"
-inherit qt5-build
+QT6_MODULE="qtbase"
+inherit qt6-build
 
-DESCRIPTION="The GUI module and platform plugins for the Qt5 framework"
-SLOT=5/$(ver_cut 1-3) # bug 707658
+DESCRIPTION="The GUI module and platform plugins for the Qt6 framework"
+SLOT=6/$(ver_cut 1-3) # bug 707658
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -28,7 +28,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	dev-libs/glib:2
-	~dev-qt/qtcore-${PV}:5=
+	~dev-qt/qtcore-${PV}:6=
 	dev-util/gtk-update-icon-cache
 	media-libs/fontconfig
 	>=media-libs/freetype-2.6.1:2
@@ -75,7 +75,7 @@ PDEPEND="
 	wayland? ( ~dev-qt/qtwayland-${PV} )
 "
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/tools/qvkgen
 	src/gui
 	src/openglextensions
@@ -87,7 +87,7 @@ QT5_TARGET_SUBDIRS=(
 	src/plugins/platforminputcontexts
 )
 
-QT5_GENTOO_CONFIG=(
+QT6_GENTOO_CONFIG=(
 	accessibility:accessibility-atspi-bridge
 	egl:egl:
 	eglfs:eglfs:
@@ -124,13 +124,12 @@ QT5_GENTOO_CONFIG=(
 	X:xcb-xinput:
 )
 
-QT5_GENTOO_PRIVATE_CONFIG=(
+QT6_GENTOO_PRIVATE_CONFIG=(
 	:gui
 )
 
 PATCHES=(
-	"${FILESDIR}/qt-5.12-gcc-avx2.patch" # bug 672946
-	"${FILESDIR}/${PN}-5.14.1-cmake-macro-backward-compat.patch" # bug 703306
+	"${FILESDIR}/qt-6.2-gcc-avx2.patch" # bug 672946
 )
 
 src_prepare() {
@@ -138,7 +137,7 @@ src_prepare() {
 	sed -i -e '/CONFIG\s*+=/s/optimize_full//' src/gui/gui.pro || die
 
 	# egl_x11 is activated when both egl and X are enabled
-	use egl && QT5_GENTOO_CONFIG+=(X:egl_x11:) || QT5_GENTOO_CONFIG+=(egl:egl_x11:)
+	use egl && QT6_GENTOO_CONFIG+=(X:egl_x11:) || QT6_GENTOO_CONFIG+=(egl:egl_x11:)
 
 	qt_use_disable_config dbus dbus \
 		src/platformsupport/themes/genericunix/genericunix.pri
@@ -151,7 +150,7 @@ src_prepare() {
 	use vnc || sed -i -e '/SUBDIRS += vnc/d' \
 		src/plugins/platforms/platforms.pro || die
 
-	qt5-build_src_prepare
+	qt6-build_src_prepare
 }
 
 src_configure() {
@@ -180,5 +179,5 @@ src_configure() {
 	if use libinput || use X; then
 		myconf+=( -xkbcommon )
 	fi
-	qt5-build_src_configure
+	qt6-build_src_configure
 }

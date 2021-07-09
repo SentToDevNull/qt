@@ -3,12 +3,12 @@
 
 EAPI=7
 
-QT5_MODULE="qtlocation"
-inherit qt5-build
+QT6_MODULE="qtlocation"
+inherit qt6-build
 
-DESCRIPTION="Physical position determination library for the Qt5 framework"
+DESCRIPTION="Physical position determination library for the Qt6 framework"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 
@@ -24,7 +24,7 @@ PDEPEND="
 	geoclue? ( app-misc/geoclue:2.0 )
 "
 
-QT5_TARGET_SUBDIRS=(
+QT6_TARGET_SUBDIRS=(
 	src/3rdparty/clipper
 	src/3rdparty/poly2tri
 	src/3rdparty/clip2tri
@@ -33,8 +33,8 @@ QT5_TARGET_SUBDIRS=(
 )
 
 pkg_setup() {
-	use geoclue && QT5_TARGET_SUBDIRS+=( src/plugins/position/geoclue2 )
-	use qml && QT5_TARGET_SUBDIRS+=(
+	use geoclue && QT6_TARGET_SUBDIRS+=( src/plugins/position/geoclue2 )
+	use qml && QT6_TARGET_SUBDIRS+=(
 		src/positioningquick
 		src/imports/positioning
 	)

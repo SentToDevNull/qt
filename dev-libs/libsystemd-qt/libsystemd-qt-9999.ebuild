@@ -26,11 +26,11 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${SYSTEMD_VERSION}
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
+	dev-qt/qtcore:6
+	dev-qt/qtdbus:6
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:5 )
+	test? ( dev-qt/qttest:6 )
 "
 
 src_configure() {

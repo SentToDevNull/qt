@@ -3,12 +3,12 @@
 
 EAPI=7
 
-inherit qt5-build
+inherit qt6-build
 
-DESCRIPTION="Network authorization library for the Qt5 framework"
+DESCRIPTION="Network authorization library for the Qt6 framework"
 LICENSE="GPL-3"
 
-if [[ ${QT5_BUILD_TYPE} == release ]]; then
+if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
