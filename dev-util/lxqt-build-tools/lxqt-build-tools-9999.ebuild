@@ -21,6 +21,6 @@ SLOT="0"
 
 DEPEND="
 	>=dev-libs/glib-2.50.0
-	dev-qt/qtcore:5
+	dev-qt/qtcore:6
 "
 RDEPEND="${DEPEND}"

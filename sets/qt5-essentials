@@ -1,12 +1,12 @@
-# set for Qt5 Essentials modules
-# http://doc.qt.io/qt-5/qtmodules.html
+# set for Qt6 Essentials modules
+# http://doc.qt.io/qt-6/qtmodules.html
 
-dev-qt/qtcore:5
-dev-qt/qtdeclarative:5
-dev-qt/qtgui:5
-dev-qt/qtmultimedia:5
-dev-qt/qtnetwork:5
-dev-qt/qtquickcontrols:5
-dev-qt/qtsql:5
-dev-qt/qttest:5
-dev-qt/qtwidgets:5
+dev-qt/qtcore:6
+dev-qt/qtdeclarative:6
+dev-qt/qtgui:6
+dev-qt/qtmultimedia:6
+dev-qt/qtnetwork:6
+dev-qt/qtquickcontrols:6
+dev-qt/qtsql:6
+dev-qt/qttest:6
+dev-qt/qtwidgets:6

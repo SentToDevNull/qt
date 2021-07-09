@@ -610,10 +610,6 @@ qt6_base_configure() {
 		# enable in respective modules to avoid poisoning QT.global_private.enabled_features
 		-no-gui -no-widgets
 
-# TODO: determine if needed
-#		# QTBUG-76521, default will change to zstd in Qt6
-#		-no-zstd
-
 		# module-specific options
 		"${myconf[@]}"
 	)

@@ -20,16 +20,16 @@ LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0/5"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 	>=dev-util/lxqt-build-tools-0.6.0
 	virtual/pkgconfig
 "
 DEPEND="
 	dev-libs/glib:2
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	dev-qt/qtcore:6
+	dev-qt/qtgui:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtx11extras:6
 	>=lxde-base/menu-cache-1.1.0
 	media-libs/libexif:=
 	x11-libs/libxcb:=

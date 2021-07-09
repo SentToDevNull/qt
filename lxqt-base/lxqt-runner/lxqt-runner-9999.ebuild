@@ -22,17 +22,17 @@ LICENSE="LGPL-2.1+"
 SLOT="0"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 	>=dev-util/lxqt-build-tools-0.6.0
 	virtual/pkgconfig
 "
 RDEPEND="
 	>=dev-cpp/muParser-2.2.3:=
 	>=dev-libs/libqtxdg-3.3.1
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtcore:6
+	dev-qt/qtgui:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtxml:6
 	kde-frameworks/kwindowsystem:5
 	>=lxde-base/menu-cache-0.5.1
 	=lxqt-base/liblxqt-${MY_PV}

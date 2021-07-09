@@ -1,28 +1,28 @@
-# set for Qt5 Add-on modules
-# http://doc.qt.io/qt-5/qtmodules.html
+# set for Qt6 Add-on modules
+# http://doc.qt.io/qt-6/qtmodules.html
 
-dev-qt/qt3d:5
-dev-qt/qtbluetooth:5
-dev-qt/qtcharts:5
-dev-qt/qtconcurrent:5
-dev-qt/qtdatavis3d:5
-dev-qt/qtdbus:5
-dev-qt/qtgraphicaleffects:5
-dev-qt/qtimageformats:5
-dev-qt/qtlocation:5
-dev-qt/qtopengl:5
-dev-qt/qtpositioning:5
-dev-qt/qtprintsupport:5
-dev-qt/qtquickcontrols2:5
-dev-qt/qtscript:5
-dev-qt/qtscxml:5
-dev-qt/qtsensors:5
-dev-qt/qtserialport:5
-dev-qt/qtsvg:5
-dev-qt/qtwayland:5
-dev-qt/qtwebchannel:5
-dev-qt/qtwebengine:5
-dev-qt/qtwebsockets:5
-dev-qt/qtx11extras:5
-dev-qt/qtxml:5
-dev-qt/qtxmlpatterns:5
+dev-qt/qt3d:6
+dev-qt/qtbluetooth:6
+dev-qt/qtcharts:6
+dev-qt/qtconcurrent:6
+dev-qt/qtdatavis3d:6
+dev-qt/qtdbus:6
+dev-qt/qtgraphicaleffects:6
+dev-qt/qtimageformats:6
+dev-qt/qtlocation:6
+dev-qt/qtopengl:6
+dev-qt/qtpositioning:6
+dev-qt/qtprintsupport:6
+dev-qt/qtquickcontrols2:6
+dev-qt/qtscript:6
+dev-qt/qtscxml:6
+dev-qt/qtsensors:6
+dev-qt/qtserialport:6
+dev-qt/qtsvg:6
+dev-qt/qtwayland:6
+dev-qt/qtwebchannel:6
+dev-qt/qtwebengine:6
+dev-qt/qtwebsockets:6
+dev-qt/qtx11extras:6
+dev-qt/qtxml:6
+dev-qt/qtxmlpatterns:6

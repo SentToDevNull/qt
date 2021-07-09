@@ -29,19 +29,19 @@ REQUIRED_USE="
 "
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 	>=dev-util/lxqt-build-tools-0.6.0
 	virtual/pkgconfig
 "
 RDEPEND="
 	>=dev-libs/libqtxdg-3.3.1
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	dev-qt/qtxml:5
+	dev-qt/qtcore:6
+	dev-qt/qtdbus:6
+	dev-qt/qtgui:6
+	dev-qt/qtsvg:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtx11extras:6
+	dev-qt/qtxml:6
 	kde-frameworks/kwindowsystem:5[X]
 	>=lxde-base/lxmenu-data-0.1.5
 	>=lxde-base/menu-cache-1.1.0
@@ -53,7 +53,7 @@ RDEPEND="
 	mount? ( kde-frameworks/solid:5 )
 	networkmonitor? ( sys-libs/libstatgrab )
 	sensors? ( sys-apps/lm-sensors )
-	statusnotifier? ( dev-libs/libdbusmenu-qt[qt5(+)] )
+	statusnotifier? ( dev-libs/libdbusmenu-qt[qt6(+)] )
 	sysstat? ( >=lxqt-base/libsysstat-0.4.1 )
 	tray? (
 		x11-libs/libxcb:=

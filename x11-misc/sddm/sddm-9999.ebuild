@@ -27,16 +27,16 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	dev-python/docutils
-	>=dev-qt/linguist-tools-5.9.4:5
+	>=dev-qt/linguist-tools-6.2.0:6
 	kde-frameworks/extra-cmake-modules:5
 	virtual/pkgconfig
 "
 RDEPEND="
-	>=dev-qt/qtcore-5.9.4:5
-	>=dev-qt/qtdbus-5.9.4:5
-	>=dev-qt/qtdeclarative-5.9.4:5
-	>=dev-qt/qtgui-5.9.4:5
-	>=dev-qt/qtnetwork-5.9.4:5
+	>=dev-qt/qtcore-6.2.0:6
+	>=dev-qt/qtdbus-6.2.0:6
+	>=dev-qt/qtdeclarative-6.2.0:6
+	>=dev-qt/qtgui-6.2.0:6
+	>=dev-qt/qtnetwork-6.2.0:6
 	>=x11-base/xorg-server-1.15.1
 	x11-libs/libxcb[xkb]
 	elogind? ( sys-auth/elogind )
@@ -45,7 +45,7 @@ RDEPEND="
 	!systemd? ( sys-power/upower )
 "
 DEPEND="${RDEPEND}
-	test? ( >=dev-qt/qttest-5.9.4:5 )
+	test? ( >=dev-qt/qttest-6.2.0:6 )
 "
 
 PATCHES=(

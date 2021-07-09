@@ -44,7 +44,7 @@ RDEPEND="
 		x11-wm/openbox
 		x11-misc/obconf-qt
 	)
-	nls? ( dev-qt/qttranslations:5 )
+	nls? ( dev-qt/qttranslations:6 )
 	policykit? ( =lxqt-base/lxqt-policykit-${MY_PV} )
 	powermanagement? ( =lxqt-base/lxqt-powermanagement-${MY_PV} )
 	processviewer? ( x11-misc/qps:0 )

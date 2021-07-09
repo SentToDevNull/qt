@@ -21,17 +21,17 @@ SLOT="0"
 IUSE="svg tiff"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtcore:6
+	dev-qt/qtgui:6
+	dev-qt/qtwidgets:6
 	media-gfx/exiv2:=
-	svg? ( dev-qt/qtsvg:5 )
-	tiff? ( dev-qt/qtimageformats:5 )
+	svg? ( dev-qt/qtsvg:6 )
+	tiff? ( dev-qt/qtimageformats:6 )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	eqmake5
+	eqmake6
 }
 
 src_install() {

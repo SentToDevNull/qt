@@ -20,18 +20,18 @@ LICENSE="LGPL-2.1+"
 SLOT="0"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/linguist-tools:6
 	>=dev-util/lxqt-build-tools-0.6.0
 	virtual/pkgconfig
 "
 RDEPEND="
 	>=dev-libs/libqtxdg-3.3.1
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	dev-qt/qtcore:6
+	dev-qt/qtdbus:6
+	dev-qt/qtgui:6
+	dev-qt/qtsvg:6
+	dev-qt/qtwidgets:6
+	dev-qt/qtx11extras:6
 	kde-frameworks/kidletime:5
 	kde-frameworks/solid:5
 	=lxqt-base/liblxqt-$(ver_cut 1-2)*
