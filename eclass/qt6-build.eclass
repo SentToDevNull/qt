@@ -27,7 +27,7 @@ esac
 # If PV matches "*9999*", this is automatically set to "live".
 QT6_BUILD_TYPE=release
 if [[ ${PV} = *9999* ]]; then
-	QT6_BUILD_TYPE=live
+	QT6_BUILD_TYPE=release #live
 fi
 readonly QT6_BUILD_TYPE
 
@@ -80,11 +80,21 @@ HOMEPAGE="https://www.qt.io/"
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3"
 SLOT=6/$(ver_cut 1-2)
 
-# official stable release
-SRC_URI="https://download.qt.io/official_releases/qt/${PV%.*}/${PV}/submodules/${_QT6_P}.tar.xz"
+## official stable release
+#SRC_URI="https://download.qt.io/official_releases/qt/${PV%.*}/${PV}/submodules/${_QT6_P}.tar.xz"
+
+# use the github
+SRC_URI="https://github.com/qt/${QT6_MODULE}/archive/refs/tags/v${PV%.*}.0-beta1.tar.gz"
+
 S=${WORKDIR}/${_QT6_P}
 
-EGIT_REPO_URI=( "https://invent.kde.org/qt/qt/${QT6_MODULE}.git" )
+## original
+#EGIT_REPO_URI=( "https://invent.kde.org/qt/qt/${QT6_MODULE}.git" )
+
+## use the actual upstream repo
+#EGIT_REPO_URI=( "https://github.com/qt/${QT6_MODULE}.git" )
+#EGIT_BRANCH=( "6.2" )
+#S=${WORKDIR}/${QT6_MODULE}
 
 [[ ${QT6_BUILD_TYPE} == live ]] && inherit git-r3
 
